@@ -41,6 +41,7 @@ class PersonalZoo
       when 3
         animal_check_in
       when 4
+        puts ""
         puts "We'll look after your personal zoo. Goodbye!"
         break
       else
@@ -63,7 +64,7 @@ class PersonalZoo
       puts ""
       puts "Here are the animals you added: "
       @animals.each do |animal|
-        print "#{animal.to_s}"
+        puts "#{animal.to_s}"
       end
     end
   end
@@ -109,14 +110,12 @@ class PersonalZoo
       actions = ["is playing with its friends and running around.", "is eating its lunch while enjoying the nice weather.", "is sleeping under a cozy shade.", "is not present in its habitat. Must be time for its vet check-up."]
 
       loop do
-        count = 1
         # display messages and each animal option to user
         puts ""
         puts "Which animal's habitat would you like to check in?"
         puts "Animals available: "
-        @animals.each do |animal|
-          puts "#{count}. #{animal.name} the #{animal.type}"
-          count = count + 1
+        @animals.each_with_index do |animal, index|
+          puts "#{index + 1}. #{animal.to_s}"
         end
 
         # ask and get number corresponding to animals available
@@ -132,7 +131,7 @@ class PersonalZoo
           puts "Please pick another number from the list."
         else
           puts ""
-          puts "#{@animals[animal_num - 1].name} #{actions.sample}"
+          puts "#{@animals[animal_num - 1].to_s} #{actions.sample}"
           break
         end
       end

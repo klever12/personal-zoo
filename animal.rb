@@ -9,6 +9,6 @@ class Animal
 
   def to_s
     # print name and type of animal
-    puts "#{self.name} the #{self.type}"
+    "#{self.name} the #{self.type}"
   end
 end
