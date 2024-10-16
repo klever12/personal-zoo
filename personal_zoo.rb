@@ -96,4 +96,46 @@ class PersonalZoo
       @animals.append(new_animal)
     end
   end
+
+  def animal_check_in
+    # check if the animals array is empty
+    if @animals.empty?
+      # display message letting user know there are no animals to check in
+      puts ""
+      puts "Looks like no animals have been added, so we cannot check in."
+      puts "You should add a couple!"
+    else
+      # array of actions animal can be doing
+      actions = ["is playing with its friends and running around.", "is eating its lunch while enjoying the nice weather.", "is sleeping under a cozy shade.", "is not present in its habitat. Must be time for its vet check-up."]
+
+      loop do
+        count = 1
+        # display messages and each animal option to user
+        puts ""
+        puts "Which animal's habitat would you like to check in?"
+        puts "Animals available: "
+        @animals.each do |animal|
+          puts "#{count}. #{animal.name} the #{animal.type}"
+          count = count + 1
+        end
+
+        # ask and get number corresponding to animals available
+        puts ""
+        puts "Enter number corresponding to animal: "
+        animal_num = gets.chomp.to_i
+
+        # check if number provided is greater than animals available
+        if @animals.length < animal_num
+          # print message saying number is not available from array
+          puts ""
+          puts "Sorry, number provided is not corresponding to animals listed."
+          puts "Please pick another number from the list."
+        else
+          puts ""
+          puts "#{@animals[animal_num - 1].name} #{actions.sample}"
+          break
+        end
+      end
+    end
+  end
 end
