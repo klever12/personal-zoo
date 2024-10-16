@@ -52,4 +52,20 @@ class PersonalZoo
     end
   end
 
+  def display
+    # check if animals array is empty and print message to user to inform
+    if @animals.empty?
+      puts ""
+      puts "Looks like no animals have been added."
+      puts "You should add a couple!"
+    else
+      # display each animal in the array
+      puts ""
+      puts "Here are the animals: "
+      @animals.each do |animal|
+        puts "#{animal.to_s}"
+      end
+    end
+  end
+
 end
