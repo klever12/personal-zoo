@@ -1,14 +1,14 @@
 class Animal
-  attr_accessor :species, :name
+  attr_accessor :type, :name
 
-  def initialize(species, name)
-    # initialize species and name of animal using values provided 
-    self.species = species
+  def initialize(type, name)
+    # initialize type and name of animal using values provided 
+    self.type = type
     self.name = name
   end
 
   def to_s
-    # print name and species of animal
-    puts "#{self.name} the #{self.species}"
+    # print name and type of animal
+    puts "#{self.name} the #{self.type}"
   end
 end
